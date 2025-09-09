@@ -5,7 +5,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { MarvelService } from '../../core/services/marvel.service';
 import { LocalCharactersService } from '../../core/services/local-characters.service';
 import { of } from 'rxjs';
-import { Character } from '../../models/character.model'; // ✅ Importe a interface
+import { Character } from '../../models/character.model';
 
 // Mock do Router
 class MockRouter {
@@ -59,12 +59,12 @@ describe('CharacterDetail', () => {
         results: [{ 
           id: 1, 
           name: 'Spider-Man', 
-          description: 'Homem-Aranha é um super-herói das histórias em quadrinhos americanas publicadas pela Marvel Comics . Criado pelo escritor e editor Stan Lee e pelo artista Steve Ditko , ele apareceu pela primeira vez na antologia de histórias em quadrinhos Amazing Fantasy #15 (agosto de 1962) na Era de Prata das Histórias em Quadrinhos ',
+          description: 'Homem-Aranha é um super-herói das histórias em quadrinhos americanas publicadas pela Marvel Comics.',
           modified: new Date().toISOString(), 
-          thumbnail: { path: '', extension: '' },
-          comics: { available: 10 },
-          series: { available: 5 },
-          stories: { available: 20 }
+          thumbnail: { 
+            path: '', 
+            extension: '' 
+          },
         }]
       } 
     };
@@ -75,7 +75,7 @@ describe('CharacterDetail', () => {
     req.flush(mockResponse);
 
     expect(component.character?.name).toBe('Spider-Man');
-    expect(component.character?.description).toBe('Friendly neighborhood');
+    expect(component.character?.description).toBe('Homem-Aranha é um super-herói das histórias em quadrinhos americanas publicadas pela Marvel Comics.');
   });
 
   it('should load character details for local character', () => {
@@ -87,7 +87,7 @@ describe('CharacterDetail', () => {
       thumbnail: { 
         path: 'custom',
         extension: 'jpg' 
-      },
+      }
     };
 
     jest.spyOn(localService, 'getLocalCharacterById').mockReturnValue(localCharacter);
@@ -95,6 +95,7 @@ describe('CharacterDetail', () => {
     component.ngOnInit();
 
     expect(component.character?.name).toBe('Capitão América');
+    expect(component.character?.description).toBe('Capitão América é um super-herói de histórias em quadrinhos americanos publicado pela Marvel Comics.');
     expect(component.isLocalCharacter).toBe(true);
   });
 
