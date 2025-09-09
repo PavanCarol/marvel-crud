@@ -1,0 +1,24 @@
+
+mat-dialog-content {
+  min-width: 300px;
+}
+button[mat-button]:hover {
+  background-color: var(--marvel-red) !important; 
+  color: var(--marvel-white)!important;
+}
+button[mat-button]:active {
+  background-color: var(--marvel-red) !important; 
+  color: var(--marvel-white)!important;
+}
+
+button[mat-raised-button][color="primary"]:hover {
+  background-color: var(--marvel-dark-gray) !important; 
+  color: var(--marvel-white) !important;
+}
+mat-dialog-content {
+  min-width: 400px;
+  
+  @media (max-width: 480px) {
+    min-width: 300px;
+  }
+}

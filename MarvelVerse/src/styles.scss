@@ -35,7 +35,11 @@ body {
 }
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
+html, body { 
+  height: 100%; 
+  --mat-sys-tertiary-fixed: light-dark(#ffffff, #ffffff) !important;
+  --mat-sys-surface-variant: light-dark(#ffffff, #ffffff) !important;
+}
 body { margin: 0; font-family: Roboto }
 
 :root {
@@ -60,7 +64,9 @@ body { margin: 0; font-family: Roboto }
      background-color: var(--marvel-white)!important;
 }
 
+
 .mat-mdc-dialog-actions .mat-button-base+.mat-button-base, .mat-mdc-dialog-actions .mat-mdc-button-base+.mat-mdc-button-base {
     margin-left: 8px;
     background-color: #ffe8e8 !important;
 }
+

@@ -6,7 +6,8 @@ import { MarvelService } from '../../core/services/marvel.service';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { DialogContentEdit } from '../../dialogs/dialog-content-edit/dialog-content-edit';
 import { MatIconModule } from '@angular/material/icon';
-
+import { DeleteConfirmDialog } from '../../dialogs/delete-confirm-dialog/delete-confirm-dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-character-detail',
   standalone: true,
@@ -22,6 +23,7 @@ export class CharacterDetail implements OnInit {
   private route = inject(ActivatedRoute);
   private router = inject(Router);
   private marvelService = inject(MarvelService);
+  private snackBar = inject(MatSnackBar);
   
   character: Character | null = null;
   loading = true;
@@ -74,4 +76,31 @@ export class CharacterDetail implements OnInit {
     }
   });
 }
+
+ openDeleteDialog() {
+    const dialogRef = this.dialog.open(DeleteConfirmDialog);
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.deleteCharacter();
+      }
+    });
+  }
+   private deleteCharacter() {
+    this.loading = true;
+    
+    setTimeout(() => {
+      this.loading = false;
+      this.showSuccessMessage();
+      this.router.navigate(['/']); 
+    }, 1000);
+  }
+
+  private showSuccessMessage() {
+    this.snackBar.open('Personagem excluído com sucesso!', 'Fechar', {
+      duration: 3000,
+      panelClass: 'success-snackbar'
+    });
+  }
+
 }
