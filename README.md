@@ -5,7 +5,7 @@ Uma aplicação CRUD (Create, Read, Update, Delete) desenvolvida em Angular 20 q
 O projeto permite explorar, visualizar, criar, editar e excluir personagens do universo Marvel de forma intuitiva e responsiva.
 
 ## 🛠️ Tecnologias Utilizadas
-- Angular 17
+- Angular 17+
 - TypeScript
 - RxJS
 - Angular CLI
