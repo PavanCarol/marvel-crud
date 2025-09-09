@@ -1,0 +1,46 @@
+.header-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.create-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--marvel-red) !important; 
+  
+  &:hover {
+    background-color: var(--marvel-red) !important;
+  }
+}
+mat-dialog-content{
+    display: flex;
+    flex-direction: column;
+}
+mat-label{
+    color: var(--marvel-red) !important;
+}
+@media (max-width: 768px) {
+  .header-actions {
+    flex-direction: column;
+    align-items: stretch;
+    
+    .marvel-title {
+      text-align: center;
+    }
+  }
+}
+.image-preview{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px ;
+    margin-bottom: 20px;
+    img{
+        width: 300px;
+    }
+}

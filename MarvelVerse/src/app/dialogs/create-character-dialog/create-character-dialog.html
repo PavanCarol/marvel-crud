@@ -1,0 +1,36 @@
+<h2 mat-dialog-title>Criar Novo Personagem</h2>
+
+<mat-dialog-content>
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Nome do Personagem</mat-label>
+    <input matInput [(ngModel)]="newCharacter.name" required>
+  </mat-form-field>
+  
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>URL da Imagem</mat-label>
+    <input matInput [(ngModel)]="newCharacter.thumbnail.path" 
+           placeholder="https://exemplo.com/imagem.jpg">
+    <mat-hint>Deixe em branco para usar imagem padrão</mat-hint>
+  </mat-form-field>
+
+  <div class="image-preview">
+    <img [src]="newCharacter.thumbnail.path || 'image_not_available.jpg'" 
+         alt="Pré-visualização" 
+         (error)="handleImageError($event)"
+         class="preview-image">
+  </div>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Descrição</mat-label>
+    <textarea matInput [(ngModel)]="newCharacter.description" rows="4"></textarea>
+  </mat-form-field>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">Cancelar</button>
+  <button mat-raised-button color="primary" (click)="onCreate()" 
+          [disabled]="!newCharacter.name.trim()">
+    Criar
+  </button>
+</mat-dialog-actions>

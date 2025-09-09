@@ -70,3 +70,6 @@ body { margin: 0; font-family: Roboto }
     background-color: #ffe8e8 !important;
 }
 
+.mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mat-mdc-notch-piece{
+  border-color: var(--marvel-red) !important;
+}

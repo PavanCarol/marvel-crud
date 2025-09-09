@@ -7,6 +7,18 @@ button[mat-button]:hover {
   color: var(--marvel-white)!important;
 }
 
+.image-preview {
+  text-align: center;
+  margin: 16px 0;
+  
+  .preview-image {
+    max-width: 100%;
+    max-height: 200px;
+    border-radius: 8px;
+    border: 2px solid #e0e0e0;
+  }
+}
+
 button[mat-raised-button][color="primary"]:hover {
   background-color: var(--marvel-dark-gray) !important; 
   color: var(--marvel-white) !important;

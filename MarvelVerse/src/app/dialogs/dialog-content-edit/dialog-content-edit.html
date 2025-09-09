@@ -6,6 +6,19 @@
     <input matInput [(ngModel)]="characterData.name">
   </mat-form-field>
 
+   <mat-form-field appearance="outline" class="full-width">
+    <mat-label>URL da Imagem</mat-label>
+    <input matInput [(ngModel)]="characterData.thumbnail.path" 
+           placeholder="https://exemplo.com/imagem.jpg">
+  </mat-form-field>
+
+  <div class="image-preview" *ngIf="characterData.thumbnail.path">
+    <img [src]="characterData.thumbnail.path" 
+         [alt]="'Preview de ' + characterData.name"
+         class="preview-image"
+         (error)="handleImageError($event)">
+  </div>
+
   <mat-form-field appearance="outline" class="full-width">
     <mat-label>Descrição</mat-label>
     <textarea matInput [(ngModel)]="characterData.description" rows="4"></textarea>

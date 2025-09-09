@@ -25,15 +25,24 @@
     <div *ngIf="!loading">
       
       <h2 class="marvel-title">PERSONAGENS DA MARVEL</h2>
-      <div class="card">
-        <div *ngFor="let character of characters" class="character-card"
-        [routerLink]="['/character', character.id]"
-        >
-          <h3>{{ character.name }}</h3>
-          <img [src]="character.thumbnail.path + '.' + character.thumbnail.extension" 
-               [alt]="character.name"
-               width="100">
-          <!-- <p>{{ character.description || 'Sem descrição' }}</p> -->
+      <div class="btn-card">
+         <button (click)="openCreateDialog()" class="create-btn">
+        <mat-icon>add</mat-icon>
+        Novo Personagem
+      </button>
       </div>
+    <div class="card">
+    <div *ngFor="let character of allCharacters" class="character-card"
+         [routerLink]="['/character', character.id]">
+      
+      <div *ngIf="isLocalCharacter(character)" class="local-badge">
+        Seu Personagem
       </div>
+      
+      <h3>{{ character.name }}</h3>
+      <img [src]="character.thumbnail.path + '.' + character.thumbnail.extension" 
+           [alt]="character.name"
+           width="100">
     </div>
+  </div>
+</div>
