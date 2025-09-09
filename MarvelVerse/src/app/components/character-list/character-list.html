@@ -1,13 +1,39 @@
-<div *ngIf="loading">Carregando personagens...</div>
-
-<div *ngIf="!loading">
-  <h2>Personagens da Marvel</h2>
-  
-  <div *ngFor="let character of characters" class="character-card">
-    <h3>{{ character.name }}</h3>
-    <img [src]="character.thumbnail.path + '.' + character.thumbnail.extension" 
-         [alt]="character.name"
-         width="100">
-    <p>{{ character.description || 'Sem descrição' }}</p>
-  </div>
+<div class="search-container">
+  <div class="search-box">
+<span class="search-icon">
+  <img src="search.png">
+</span>
+<input 
+  type="text" 
+  class="search-input"
+  placeholder="Digite o nome do personagem..."
+   [(ngModel)]="searchTerm"
+  (input)="onSearch()"
+  #searchInput
+  >
+<button class="search-button" (click)="onSearch()" >
+  Procurar
+</button>
 </div>
+</div>
+
+    <div class="loading-container" *ngIf="loading">
+      <div class="loading-spinner"></div>
+       <p>Carregando personagens...</p>
+    </div>
+    
+    <div *ngIf="!loading">
+      
+      <h2 class="marvel-title">PERSONAGENS DA MARVEL</h2>
+      <div class="card">
+        <div *ngFor="let character of characters" class="character-card"
+        [routerLink]="['/character', character.id]"
+        >
+          <h3>{{ character.name }}</h3>
+          <img [src]="character.thumbnail.path + '.' + character.thumbnail.extension" 
+               [alt]="character.name"
+               width="100">
+          <!-- <p>{{ character.description || 'Sem descrição' }}</p> -->
+      </div>
+      </div>
+    </div>

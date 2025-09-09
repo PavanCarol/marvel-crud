@@ -1,0 +1,38 @@
+  <div class="loading-container" *ngIf="loading">
+      <div class="loading-spinner"></div>
+       <p>Carregando personagens...</p>
+    </div>
+
+<div *ngIf="!loading && character" class="character-detail">
+  <button class="back-button" (click)="goBack()">
+    <mat-icon>arrow_back_ios</mat-icon>
+    Voltar</button>
+  <div class="card">
+
+    <div class="character-header">
+      <h1>{{ character.name }}</h1>
+      <img [src]="character.thumbnail.path + '.' + character.thumbnail.extension" 
+           [alt]="character.name"
+           class="character-image">
+      
+      <div class="character-info">
+        <p class="modified">Modificado: {{ character.modified | date:'dd/MM/yyyy' }}</p>
+      </div>
+    </div>
+    
+    <div class="character-content">
+      <h1>Descrição</h1>
+      <p class="description">{{ character.description || 'Nenhuma descrição disponível.' }}</p>
+
+      <div class="actions">
+        <button (click)="openDialog()"> Editar</button>
+        <button>Excluir</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!loading && !character" class="not-found">
+  <h2>Personagem não encontrado</h2>
+  <button (click)="goBack()">Voltar para lista</button>
+</div>

@@ -1,0 +1,121 @@
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vh; 
+  text-align: center;
+  
+  p {
+    margin-top: 1.3rem;
+    font-size: 1.2rem;
+    color: var(--marvel-dark-gray);
+    font-weight: 500;
+  }
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #ec1d24; 
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.back-button{
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    border: none;
+        border-radius: 5px;
+        background-color: var( --marvel-gray);
+        color: var( --marvel-white);
+        padding: 4px 15px;
+        font-size: 15px;
+
+    mat-icon{
+        height: 18px !important;
+    width: 18px !important;
+    }
+}
+.back-button:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+   background-color: var(--marvel-red);
+  }
+.material-icons {
+    font-size: 18px !important;
+}
+.card{
+    margin: 20px;
+     background: var(--marvel-white);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  
+
+  
+  h3 {
+    color: var(--marvel-dark-gray); 
+    margin-bottom: 12px;
+    font-size: 1.2rem;
+  }
+
+  
+  img {
+      border-radius: 8px;
+      margin-bottom: 12px;
+      object-fit: cover;
+      height: 500px;
+      width: 100%;
+    }
+    .character-header{
+        h1{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .modified {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: var(--marvel-gray);
+          line-height: 1.4;
+          font-size: 1rem;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+  }
+  .character-content{
+   margin: 20px;
+width: 57%;
+   .description{
+    font-size: 1.2rem;
+     color: var(--marvel-gray)
+   }
+  }
+  .actions{
+    display: flex;
+      column-gap: 20px;
+
+      button{
+        border: none;
+        border-radius: 5px;
+        background-color: var( --marvel-gray);
+        color: var( --marvel-white);
+        padding: 10px 15px;
+        font-size: 15px;
+      }
+      button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+   background-color: var(--marvel-red);
+  }
+  }
+}

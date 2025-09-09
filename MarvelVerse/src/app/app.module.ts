@@ -6,20 +6,34 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
 import { CharacterList } from './components/character-list/character-list';
+import { Project } from './project/project';
 
-
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
      AppComponent,
-    ],
-    imports: [
+     Project,
+   ],
+   imports: [
     CharacterList,
-     BrowserModule,
+    BrowserModule,
     HttpClientModule, 
     RouterModule.forRoot(routes),
-    CommonModule
+    CommonModule,
+    MatToolbarModule,
+    FormsModule,
+    MatInputModule,
+    MatIconModule,
+    MatButtonModule
    ],
-  providers: []
+   exports: [RouterModule],
+   providers: [],
+   bootstrap: [AppComponent]
 })
 export class AppModule { }

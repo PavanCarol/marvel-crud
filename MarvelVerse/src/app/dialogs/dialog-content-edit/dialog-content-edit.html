@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>Editar Personagem</h1>
+
+<mat-dialog-content>    
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Nome</mat-label>
+    <input matInput [(ngModel)]="characterData.name">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Descrição</mat-label>
+    <textarea matInput [(ngModel)]="characterData.description" rows="4"></textarea>
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">Cancelar</button>
+  <button mat-raised-button color="primary" (click)="onSave()">Salvar</button>
+</mat-dialog-actions>

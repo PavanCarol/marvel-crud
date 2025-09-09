@@ -36,4 +36,31 @@ body {
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto }
+
+:root {
+  --marvel-red: #EC1D24;
+
+  --marvel-black: #151515;
+  --marvel-dark-gray: #202020;
+  --marvel-gray: #AEAEAE;
+  --marvel-light-gray: #d9d9d9;
+  --marvel-white: #ffffff;
+}
+.mat-mdc-dialog-container .mat-mdc-dialog-title+.mat-mdc-dialog-content {
+    padding-top: 11px !important;
+}
+
+.mat-mdc-raised-button:not(:disabled) {
+    color: var(--marvel-red, var(--marvel-red)) !important;
+    background-color: var(--marvel-white)!important;
+}
+.mat-mdc-button:not(:disabled) {
+     color: var(--marvel-red, var(--marvel-red)) !important;
+     background-color: var(--marvel-white)!important;
+}
+
+.mat-mdc-dialog-actions .mat-button-base+.mat-button-base, .mat-mdc-dialog-actions .mat-mdc-button-base+.mat-mdc-button-base {
+    margin-left: 8px;
+    background-color: #ffe8e8 !important;
+}

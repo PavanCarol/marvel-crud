@@ -1,0 +1,21 @@
+.full-width {
+  width: 100%;
+  margin-bottom: 16px;
+}
+button[mat-button]:hover {
+  background-color: var(--marvel-red) !important; 
+  color: var(--marvel-white)!important;
+}
+
+/* Botão Salvar */
+button[mat-raised-button][color="primary"]:hover {
+  background-color: var(--marvel-dark-gray) !important; 
+  color: var(--marvel-white) !important;
+}
+mat-dialog-content {
+  min-width: 400px;
+  
+  @media (max-width: 480px) {
+    min-width: 300px;
+  }
+}
