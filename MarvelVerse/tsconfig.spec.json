@@ -4,11 +4,21 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/spec",
-    "types": [
-      "jasmine"
-    ]
+    "types": ["jest", "node"],
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": false,
+    "noImplicitAny": false,
+    "baseUrl": "./",
+    "paths": {
+      "@angular/*": ["node_modules/@angular/*"],
+      "tslib": ["node_modules/tslib/tslib.d.ts"]
+    }
   },
   "include": [
-    "src/**/*.ts"
+    "src/**/*.spec.ts",
+    "src/**/*.d.ts",
+    "setup-jest.ts"
   ]
 }
